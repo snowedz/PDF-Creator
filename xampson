@@ -8,15 +8,29 @@ root = Tk()
 root.geometry('+%d+%d'%(350,10)) #place GUI at x=350, y=10
 
 #header area - logo & browse button
-header = Frame(root, width=800, height=175, bg="white")
+header = Frame(root, width=800, height=175, bg="#3d3d3d")
 header.grid(columnspan=3, rowspan=2, row=0)
 
 #main content area - text and image extraction
-main_content = Frame(root, width=800, height=250, bg="#20bebe")
+main_content = Frame(root, width=800, height=250, bg="#3d3d3d")
 main_content.grid(columnspan=3, rowspan=2, row=4)
 # load a JPG file
-file = fd.askopenfilenames(parent=root, filetypes=[("JPG File", ".JPG")])
-file = list(file)
-finalfile = fd.asksaveasfilename(parent=root, filetypes=[("PDF","*.pdf")], title ="Dê um nome")
-with open(finalfile+".pdf","wb") as f:
-	f.write(img2pdf.convert(file))
+def openfile():
+	global file
+	file = fd.askopenfilenames(parent=root, filetypes=[("JPG File", ".JPG")])
+	file = list(file)
+	return file
+#save PDF
+def finalfile():
+	finalfile = fd.asksaveasfilename(parent=root, filetypes=[("PDF","*.pdf")], title ="Dê um nome")
+	with open(finalfile+".pdf","wb") as f:
+		f.write(img2pdf.convert(file))
+
+#Botões
+save_img_menu = Frame(root, width=800, height=60, bg="#4b4b4b")
+save_img_menu.grid(columnspan=3, rowspan=1, row=3)
+openFile_btn = Button(root, text="Selecionar Imagens", command=lambda:openfile(), font=("shanti", 10), height=1, width=15)
+openFile_btn.grid(row=3,column=0)
+saveAll_btn = Button(root, text="Salvar PDF", command=lambda:finalfile(), font=("shanti", 10), height=1, width=15)
+saveAll_btn.grid(row=3,column=2)
+root.mainloop()
