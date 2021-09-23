@@ -1,0 +1,22 @@
+from tkinter import *
+import tkinter.filedialog as fd
+import img2pdf
+import os
+
+#initiallize a Tkinter root object
+root = Tk()
+root.geometry('+%d+%d'%(350,10)) #place GUI at x=350, y=10
+
+#header area - logo & browse button
+header = Frame(root, width=800, height=175, bg="white")
+header.grid(columnspan=3, rowspan=2, row=0)
+
+#main content area - text and image extraction
+main_content = Frame(root, width=800, height=250, bg="#20bebe")
+main_content.grid(columnspan=3, rowspan=2, row=4)
+# load a JPG file
+file = fd.askopenfilenames(parent=root, filetypes=[("JPG File", ".JPG")])
+file = list(file)
+finalfile = fd.asksaveasfilename(parent=root, filetypes=[("PDF","*.pdf")], title ="Dê um nome")
+with open(finalfile+".pdf","wb") as f:
+	f.write(img2pdf.convert(file))
