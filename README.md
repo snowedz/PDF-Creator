@@ -17,7 +17,7 @@ pip3 install img2pdf && pip3 install pillow
 
 ## Usage
 
-```python3 PDFCreator.py
+```python3 PDFCreator.py```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
