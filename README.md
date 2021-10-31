@@ -25,8 +25,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate when necessary.
 
 ## Contributors
-- Eduardo Neves (https://github.com/snowedz)
-- Lucas Brabec (https://github.com/Brabec)
+- [Eduardo Neves](https://github.com/snowedz)
+- [Lucas Brabec](https://github.com/Brabec)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
